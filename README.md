@@ -1,9 +1,14 @@
-# api documentation for  [network-address (v1.1.2)](https://github.com/mafintosh/network-address)  [![npm package](https://img.shields.io/npm/v/npmdoc-network-address.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-network-address) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-network-address.svg)](https://travis-ci.org/npmdoc/node-npmdoc-network-address)
+# npmdoc-network-address
+
+#### api documentation for  [network-address (v1.1.2)](https://github.com/mafintosh/network-address)  [![npm package](https://img.shields.io/npm/v/npmdoc-network-address.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-network-address) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-network-address.svg)](https://travis-ci.org/npmdoc/node-npmdoc-network-address)
+
 #### get the local network address of your machine
 
-[![NPM](https://nodei.co/npm/network-address.png?downloads=true)](https://www.npmjs.com/package/network-address)
+[![NPM](https://nodei.co/npm/network-address.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/network-address)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-network-address/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-network-address_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-network-address/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-network-address/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-network-address/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-network-address/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-network-address/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-network-address/build/screenCapture.npmPackageListing.svg)
 
@@ -17,8 +22,7 @@
 
 {
     "author": {
-        "name": "Mathias Buus Madsen",
-        "email": "mathiasbuus@gmail.com"
+        "name": "Mathias Buus Madsen"
     },
     "bin": {
         "network-address": "./cli.js"
@@ -47,13 +51,11 @@
     "main": "index.js",
     "maintainers": [
         {
-            "name": "mafintosh",
-            "email": "mathiasbuus@gmail.com"
+            "name": "mafintosh"
         }
     ],
     "name": "network-address",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git://github.com/mafintosh/network-address.git"
@@ -63,78 +65,6 @@
     },
     "version": "1.1.2"
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module network-address](#apidoc.module.network-address)
-1.  [function <span class="apidocSignatureSpan">network-address.</span>ipv4 (iface)](#apidoc.element.network-address.ipv4)
-1.  [function <span class="apidocSignatureSpan">network-address.</span>ipv6 (iface)](#apidoc.element.network-address.ipv6)
-
-
-
-# <a name="apidoc.module.network-address"></a>[module network-address](#apidoc.module.network-address)
-
-#### <a name="apidoc.element.network-address.ipv4"></a>[function <span class="apidocSignatureSpan">network-address.</span>ipv4 (iface)](#apidoc.element.network-address.ipv4)
-- description and source-code
-```javascript
-function ipv4(iface) {
-  var interfaces = os.networkInterfaces()
-  if (iface) interfaces = reduceInterfaces(interfaces, iface)
-  return pickInterface(interfaces, 'IPv4')
-}
-```
-- example usage
-```shell
-...
-
-tape('ipv4', function (t) {
-  t.ok(/^\d+\.\d+\.\d+\.\d+$/.test(address()), 'looks like a ipv4')
-  t.end()
-})
-
-tape('ipv4 #2', function (t) {
-  t.ok(/^\d+\.\d+\.\d+\.\d+$/.test(address.ipv4()), 'looks like a ipv4')
-  t.end()
-})
-
-tape('ipv4 #3', function (t) {
-  t.ok(/^\d+\.\d+\.\d+\.\d+$/.test(address.ipv4('lo')), 'looks like a ipv4')
-  t.end()
-})
-...
-```
-
-#### <a name="apidoc.element.network-address.ipv6"></a>[function <span class="apidocSignatureSpan">network-address.</span>ipv6 (iface)](#apidoc.element.network-address.ipv6)
-- description and source-code
-```javascript
-function ipv6(iface) {
-  var interfaces = os.networkInterfaces()
-  if (iface) interfaces = reduceInterfaces(interfaces, iface)
-  return pickInterface(interfaces, 'IPv6')
-}
-```
-- example usage
-```shell
-...
-
-it is easy to use
-
-''' js
-var address = require('network-address')
-
-console.log(address())      // prints something like 192.168.3.102
-console.log(address.ipv6()) // prints something like fc00::5137:ecb:55be:c2fc
-'''
-
-it is also available as a command line tool
-
-'''
-npm install -g network-address
-'''
-...
 ```
 
 
