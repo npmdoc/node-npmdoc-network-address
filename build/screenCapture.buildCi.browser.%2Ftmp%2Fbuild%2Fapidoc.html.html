@@ -56,6 +56,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.network-address.network-address">
+            function <span class="apidocSignatureSpan"></span>network-address
+            <span class="apidocSignatureSpan">(iface)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.network-address.ipv4">
             function <span class="apidocSignatureSpan">network-address.</span>ipv4
             <span class="apidocSignatureSpan">(iface)</span>
@@ -74,10 +83,49 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.network-address.ipv4">module network-address.ipv4</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.network-address.ipv4.ipv4">
+            function <span class="apidocSignatureSpan">network-address.</span>ipv4
+            <span class="apidocSignatureSpan">(iface)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.network-address.ipv4.ipv6">
+            function <span class="apidocSignatureSpan">network-address.ipv4.</span>ipv6
+            <span class="apidocSignatureSpan">(iface)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.network-address" id="apidoc.module.network-address">module network-address</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.network-address.network-address" id="apidoc.element.network-address.network-address">
+        function <span class="apidocSignatureSpan"></span>network-address
+        <span class="apidocSignatureSpan">(iface)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ipv4(iface) {
+  var interfaces = os.networkInterfaces()
+  if (iface) interfaces = reduceInterfaces(interfaces, iface)
+  return pickInterface(interfaces, 'IPv4')
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
@@ -116,6 +164,77 @@ tape('ipv4 #3', function (t) {
     <h2>
         <a href="#apidoc.element.network-address.ipv6" id="apidoc.element.network-address.ipv6">
         function <span class="apidocSignatureSpan">network-address.</span>ipv6
+        <span class="apidocSignatureSpan">(iface)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ipv6(iface) {
+  var interfaces = os.networkInterfaces()
+  if (iface) interfaces = reduceInterfaces(interfaces, iface)
+  return pickInterface(interfaces, 'IPv6')
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+it is easy to use
+
+``` js
+var address = require('network-address')
+
+console.log(address())      // prints something like 192.168.3.102
+console.log(address.<span class="apidocCodeKeywordSpan">ipv6</span>()) // prints something like fc00::5137:ecb:55be:c2fc
+```
+
+it is also available as a command line tool
+
+```
+npm install -g network-address
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.network-address.ipv4" id="apidoc.module.network-address.ipv4">module network-address.ipv4</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.network-address.ipv4.ipv4" id="apidoc.element.network-address.ipv4.ipv4">
+        function <span class="apidocSignatureSpan">network-address.</span>ipv4
+        <span class="apidocSignatureSpan">(iface)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ipv4(iface) {
+  var interfaces = os.networkInterfaces()
+  if (iface) interfaces = reduceInterfaces(interfaces, iface)
+  return pickInterface(interfaces, 'IPv4')
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+tape('ipv4', function (t) {
+  t.ok(/^\d+\.\d+\.\d+\.\d+$/.test(address()), 'looks like a ipv4')
+  t.end()
+})
+
+tape('ipv4 #2', function (t) {
+  t.ok(/^\d+\.\d+\.\d+\.\d+$/.test(address.<span class="apidocCodeKeywordSpan">ipv4</span>()), 'looks like a ipv4')
+  t.end()
+})
+
+tape('ipv4 #3', function (t) {
+  t.ok(/^\d+\.\d+\.\d+\.\d+$/.test(address.ipv4('lo')), 'looks like a ipv4')
+  t.end()
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.network-address.ipv4.ipv6" id="apidoc.element.network-address.ipv4.ipv6">
+        function <span class="apidocSignatureSpan">network-address.ipv4.</span>ipv6
         <span class="apidocSignatureSpan">(iface)</span>
         </a>
     </h2>
